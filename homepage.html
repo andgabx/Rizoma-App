@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - Rizoma</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Bootstrap icons -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+  <style>
+    /* Adicione um estilo personalizado para o menu de fundo */
+    .menu-bg {
+      background-color: rgba(126, 159, 91, 0.9); /* Usando a cor com opacidade */
+    }
+  </style>
+</head>
+<body class="bg-[#f5e6d3] flex flex-col items-center min-h-screen">
+
+  <!-- Barra de Navegação -->
+  <header class="w-full bg-[#7e9f5b] p-4 rounded-b-lg flex justify-between items-center relative">
+    <i id="menu-icon" class="bi bi-list text-[#623721] text-2xl cursor-pointer"></i> <!-- Ícone do menu -->
+    <div class="flex items-center space-x-4 pr-4">
+      <i class="bi bi-bell-fill text-[#623721] text-2xl"></i> <!-- ícone "bell" preenchido -->
+      <span class="relative flex shrink-0 overflow-hidden rounded-full">
+        <i class="bi bi-people-fill text-[#623721] text-2xl"></i> <!-- ícone "people" preenchido -->
+      </span>
+    </div>
+  </header>
+
+
+  <!-- Menu hambúrguer escondido -->
+  <nav id="mobile-menu" class="fixed inset-0 flex flex-col items-center justify-center bg-opacity-0 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none menu-bg animate__animated">
+    <i id="close-icon" class="bi bi-x-lg text-[#623721] text-3xl absolute top-4 right-4 cursor-pointer hidden"></i> <!-- Ícone de fechar (X) -->
+    <ul class="text-[#623721] text-xl space-y-4">
+      <li><a class="font-bold" href="#">Home</a></li>
+      <li><a  class="font-bold"href="#">Sobre</a></li>
+      <li><a class="font-bold" href="#">Serviços</a></li>
+      <li><a class="font-bold" href="#">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 w-full bg-[#f5e6d3] p-4 space-y-4 rounded-t-3xl"> <!--Lembrar do Scroll para limitar a quantidade de conteudo e nao sumir o footer-->
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+
+    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
+      <i class="bi bi-flower1 text-2xl"></i>
+      <div class="ml-4 flex-1">
+        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
+        <p class="text-[#4a4a4a] text-sm">...</p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-[#4a4a4a] text-sm">03</span>
+      </div>
+    </div>
+    
+  </main>
+
+  <!-- Menu opcoes rodape -->
+  <footer class="w-full bg-[#7e9f5b] p-4 flex justify-around items-center rounded-t-3xl">
+    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
+    <i class="bi bi-plus-circle-fill text-[#623721] text-2xl"></i>
+    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
+    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
+  </footer>
+
+  <md-branded-fab class="fixed right-4 bottom-20 rounded-full" size="small" aria-label="Add">
+    <svg slot="icon" viewBox="0 0 36 36">
+      <path fill="#623721" d="M16 16v14h4V20z"></path>
+      <path fill="#623721" d="M30 16H20l-4 4h14z"></path>
+      <path fill="#623721" d="M6 16v4h10l4-4z"></path>
+      <path fill="#623721" d="M20 16V6h-4v14z"></path>
+      <path fill="none" d="M0 0h36v36H0z"></path>
+    </svg>
+  </md-branded-fab>
+
+  <script>
+    // Script para mostrar e esconder o menu com animações laterais
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuIcon.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('opacity-0')) {
+        // Adiciona animação de entrada pela esquerda
+        mobileMenu.classList.remove('animate__slideOutLeft');
+        mobileMenu.classList.add('animate__slideInLeft', 'opacity-100', 'bg-opacity-90');
+        mobileMenu.classList.remove('opacity-0', 'bg-opacity-0', 'pointer-events-none');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    closeIcon.addEventListener('click', () => {
+      // Adiciona animação de saída pela esquerda
+      mobileMenu.classList.remove('animate__slideInLeft');
+      mobileMenu.classList.add('animate__slideOutLeft');
+      setTimeout(() => {
+        mobileMenu.classList.add('opacity-0', 'bg-opacity-0', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100', 'bg-opacity-90');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }, 500); // Delay para esperar a animação de saída
+    });
+  </script>
+
+</body>
+</html>
