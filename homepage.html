@@ -10,189 +10,165 @@
   />
   <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Bootstrap icons -->
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
-    }
-  </script>
-  <script type="module">
-    import '@material/web/all.js';
-    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
-    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-  </script>
-  <style>
-    /* Adicione um estilo personalizado para o menu de fundo */
-    .menu-bg {
-      background-color: rgba(126, 159, 91, 0.9); /* Usando a cor com opacidade */
-    }
-  </style>
 </head>
-<body class="bg-[#f5e6d3] flex flex-col items-center min-h-screen">
+<body class="bg-gray-200 flex flex-col min-h-screen">
 
-  <!-- Barra de Navegação -->
-  <header class="w-full bg-[#7e9f5b] p-4 rounded-b-lg flex justify-between items-center relative">
-    <i id="menu-icon" class="bi bi-list text-[#623721] text-2xl cursor-pointer"></i> <!-- Ícone do menu -->
+  <!-- Barra de Navegação Sticky usando Tailwind -->
+  <header class="w-full p-4 rounded-b-lg flex justify-between items-center sticky top-0 z-50">
+    <!-- Espaço para a Logo -->
+    <div class="flex items-center">
+      <img src="logo-placeholder.png" alt="Logo" class="h-10"> <!-- Aqui você irá importar sua logo -->
+    </div>
+
+    <!-- Ícone de usuário no extremo direito -->
     <div class="flex items-center space-x-4 pr-4">
-      <i class="bi bi-bell-fill text-[#623721] text-2xl"></i> <!-- ícone "bell" preenchido -->
-      <span class="relative flex shrink-0 overflow-hidden rounded-full">
-        <i class="bi bi-people-fill text-[#623721] text-2xl"></i> <!-- ícone "people" preenchido -->
-      </span>
+      <i class="bi bi-people-fill text-gray-800 text-2xl"></i> <!-- Ícone "people" preenchido -->
     </div>
   </header>
 
+  <!-- Conteúdo Principal com Scroll -->
+  <main class="flex-1 w-full bg-gray-200 p-4 space-y-4 rounded-t-3xl overflow-y-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> <!-- Mudança para grid -->
 
-  <!-- Menu hambúrguer escondido -->
-  <nav id="mobile-menu" class="fixed inset-0 flex flex-col items-center justify-center bg-opacity-0 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none menu-bg animate__animated">
-    <i id="close-icon" class="bi bi-x-lg text-[#623721] text-3xl absolute top-4 right-4 cursor-pointer hidden"></i> <!-- Ícone de fechar (X) -->
-    <ul class="text-[#623721] text-xl space-y-4">
-      <li><a class="font-bold" href="#">Opção 1</a></li>
-      <li><a  class="font-bold"href="#">Opção 2</a></li>
-      <li><a class="font-bold" href="#">Opção 3</a></li>
-      <li><a class="font-bold" href="#">Opção 4</a></li>
-    </ul>
-  </nav>
-
-  <!-- Conteúdo Principal -->
-  <main class="flex-1 w-full bg-[#f5e6d3] p-4 space-y-4 rounded-t-3xl"> <!--Lembrar do Scroll para limitar a quantidade de conteudo e nao sumir o footer-->
-
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
+      <!-- Novo contêiner de datas -->
+      <div id="date-container" class="p-4 bg-white rounded-lg shadow-md">
+        <div id="current-date" class="text-lg text-center font-semibold mb-4"></div>
+        <div class="flex justify-between" id="date-range">
+          <!-- As datas serão inseridas aqui via JavaScript -->
+        </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
+
+      <!-- Conteúdo repetido -->
+      <div class="border bg-gray-300 flex items-center p-4 rounded-lg shadow-md hover:bg-gray-400 transition-colors duration-300">
+        <i class="bi bi-flower1 text-2xl text-gray-600"></i>
+        <div class="ml-4 flex-1">
+          <h2 class="text-gray-800 font-semibold">Quinta</h2>
+          <p class="text-gray-600 text-sm">...</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="text-gray-600 text-sm">03</span>
+        </div>
       </div>
     </div>
 
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
+    <!-- Novo contêiner 1 -->
+    <div class="border bg-gray-300 p-4 rounded-lg shadow-md hover:bg-gray-400 transition-colors duration-300">
+      <div class="flex gap-3">
+        <i class="bi bi-list-check text-2xl text-gray-600"></i>
+        <h2 class="text-gray-800 font-semibold my-auto">Atividades de hoje</h2>
       </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
+      <div class="ml-4 flex-1">
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Revisar plano de plantio</li>
+          <li>Contato com fornecedores</li>
+          <li>Reunião com equipe de campo</li>
+        </ul>
       </div>
     </div>
 
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
+    <!-- Novo contêiner 2 -->
+    <div class="border bg-gray-300 p-4 rounded-lg shadow-md hover:bg-gray-400 transition-colors duration-300">
+      <div class="flex gap-3">
+        <i class="bi bi-list-check text-2xl text-gray-600"></i>
+        <h2 class="text-gray-800 font-semibold my-auto">Entrega dos produtos</h2>
       </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
-      </div>
-    </div>
 
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
       <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
-      </div>
-    </div>
 
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Acompanhar irrigação</li>
+          <li>Verificar estoque de insumos</li>
+          <li>Planejar colheita semanal</li>
+        </ul>
       </div>
     </div>
-
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
-      </div>
-    </div>
-
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
-      </div>
-    </div>
-
-    <div class="border text-card-foreground bg-[#e69d6b] flex items-center p-4 rounded-lg shadow-md">
-      <i class="bi bi-flower1 text-2xl"></i>
-      <div class="ml-4 flex-1">
-        <h2 class="text-[#4a4a4a] font-semibold">Quinta</h2>
-        <p class="text-[#4a4a4a] text-sm">...</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <span class="text-[#4a4a4a] text-sm">03</span>
-      </div>
-    </div>
-    
   </main>
 
-  <!-- Menu opcoes rodape -->
-  <footer class="w-full bg-[#7e9f5b] p-4 flex justify-around items-center rounded-t-3xl">
-    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
-    <i class="bi bi-plus-circle-fill text-[#623721] text-2xl"></i>
-    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
-    <i class="bi bi-house-fill text-[#623721] text-2xl"></i>
+  <!-- Menu opções rodapé Sticky usando Tailwind -->
+  <footer class="w-full bg-gray-500 p-4 flex justify-around items-center rounded-t-3xl sticky bottom-0 z-50">
+    <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
+    <i class="bi bi-plus-circle-fill text-gray-800 text-2xl"></i>
+    <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
+    <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
   </footer>
 
-  <md-branded-fab class="fixed right-4 bottom-20 rounded-full" size="small" aria-label="Add">
-    <svg slot="icon" viewBox="0 0 36 36">
-      <path fill="#623721" d="M16 16v14h4V20z"></path>
-      <path fill="#623721" d="M30 16H20l-4 4h14z"></path>
-      <path fill="#623721" d="M6 16v4h10l4-4z"></path>
-      <path fill="#623721" d="M20 16V6h-4v14z"></path>
-      <path fill="none" d="M0 0h36v36H0z"></path>
-    </svg>
-  </md-branded-fab>
+  <!-- FAB Botão -->
+  <button id="fab-btn" class="fixed right-4 bottom-20 bg-gray-600 text-white p-4 rounded-full shadow-lg focus:outline-none">
+    <i class="bi bi-plus-lg text-2xl"></i>
+  </button>
 
+  <!-- Popup Menu perto do FAB -->
+  <div id="popup-menu" class="fixed right-4 bottom-32 w-64 bg-gray-300 p-4 rounded-lg shadow-lg hidden">
+    <div class="flex justify-between">
+      <ul class="space-y-4">
+        <li class="flex items-center gap-4">
+          <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
+          <a href="#" class="text-gray-800 text-md hover:underline">Clientes</a>
+        </li>
+        <li class="flex items-center gap-4">
+          <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
+          <a href="#" class="text-gray-800 text-md hover:underline">Terrenos</a>
+        </li>
+        <li class="flex items-center gap-4">
+          <i class="bi bi-house-fill text-gray-800 text-2xl"></i>
+          <a href="#" class="text-gray-800 text-md hover:underline">Plantio</a>
+        </li>
+      </ul>
+      <button id="close-popup" class="text-gray-800 my-1">
+        <i class="bi bi-x-lg text-2xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Script para controlar o popup e o contêiner de data -->
   <script>
-    // Script para mostrar e esconder o menu com animações laterais
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
-    const mobileMenu = document.getElementById('mobile-menu');
+    const fabBtn = document.getElementById('fab-btn');
+    const popupMenu = document.getElementById('popup-menu');
+    const closePopup = document.getElementById('close-popup');
 
-    menuIcon.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('opacity-0')) {
-        // Adiciona animação de entrada pela esquerda
-        mobileMenu.classList.remove('animate__slideOutLeft');
-        mobileMenu.classList.add('animate__slideInLeft', 'opacity-100', 'bg-opacity-90');
-        mobileMenu.classList.remove('opacity-0', 'bg-opacity-0', 'pointer-events-none');
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      }
+    fabBtn.addEventListener('click', () => {
+      popupMenu.classList.toggle('hidden');
     });
 
-    closeIcon.addEventListener('click', () => {
-      // Adiciona animação de saída pela esquerda
-      mobileMenu.classList.remove('animate__slideInLeft');
-      mobileMenu.classList.add('animate__slideOutLeft');
-      setTimeout(() => {
-        mobileMenu.classList.add('opacity-0', 'bg-opacity-0', 'pointer-events-none');
-        mobileMenu.classList.remove('opacity-100', 'bg-opacity-90');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }, 500); // Delay para esperar a animação de saída
+    closePopup.addEventListener('click', () => {
+      popupMenu.classList.add('hidden');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Script para exibir o intervalo de datas
+      const currentDate = new Date();
+      const dateRange = [];
+      for (let i = -2; i <= 2; i++) {
+        const date = new Date(currentDate);
+        date.setDate(currentDate.getDate() + i);
+        dateRange.push(date);
+      }
+
+      const formatDate = (date) => date.getDate();
+      const formatDay = (date) => date.toLocaleString('pt-BR', { weekday: 'short' }).slice(0, 3);
+      const formatMonthYear = (date) => date.toLocaleString('pt-BR', { month: 'long', day: 'numeric' });
+
+      document.getElementById('current-date').textContent = `Hoje, ${formatMonthYear(currentDate)}`;
+
+      const dateContainer = document.getElementById('date-range');
+      dateRange.forEach((date) => {
+        const dateElement = document.createElement('div');
+        dateElement.className = `flex flex-col items-center`;
+
+        const dayElement = document.createElement('div');
+        dayElement.className = 'text-xs text-gray-500 mb-1';
+        dayElement.textContent = formatDay(date);
+
+        const dateNumberElement = document.createElement('div');
+        dateNumberElement.className = `w-10 h-10 flex items-center justify-center rounded-full ${
+          date.getDate() === currentDate.getDate() ? 'bg-gray-500 text-white' : 'text-gray-700'
+        }`;
+        dateNumberElement.textContent = formatDate(date);
+
+        dateElement.appendChild(dayElement);
+        dateElement.appendChild(dateNumberElement);
+        dateContainer.appendChild(dateElement);
+      });
     });
   </script>
 
